@@ -23,7 +23,7 @@ if prompt := st.chat_input("How can Chirag help you?"):
     with st.chat_message("user"):
         st.markdown(prompt)
 
-    with st.chat_message("assistant"):
+    with st.chat_message("assistant", avatar="bot.png"):
         # Include the system prompt at the beginning of the message list
         stream = client.chat.completions.create(
             model=st.session_state["openai_model"],
