@@ -3,7 +3,7 @@ import streamlit as st
 import os
 
 st.set_page_config(
-    page_title="Chirag",  # This changes the title in the browser tab
+    page_title="Chirag's Apps",  # This changes the title in the browser tab
     page_icon="🚀",               # This changes the favicon (you can also use an emoji or a file path)
     layout="wide",                # (optional) wide or centered
     initial_sidebar_state="expanded",  # (optional) expanded or collapsed
