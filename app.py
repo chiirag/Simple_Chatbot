@@ -4,8 +4,7 @@ import os
 
 st.title("Chirag Jain's personal bot")
 
-client = OpenAI(api_key="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
-")
+client = OpenAI(api_key="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")
 
 if "openai_model" not in st.session_state:
     st.session_state["openai_model"] = "gpt-4-1106-preview"
