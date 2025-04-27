@@ -1,6 +1,7 @@
 from openai import OpenAI
 import streamlit as st
 import os
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 st.set_page_config(
     page_title="Chirag's Apps",  # This changes the title in the browser tab
@@ -9,8 +10,13 @@ st.set_page_config(
     initial_sidebar_state="expanded",  # (optional) expanded or collapsed
 )
 
-st.title("Chirag Jain's personal bot")
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+option = st.selectbox(
+    "How do you want your bot to feel?",
+    ("Funny", "Happy", "Sad","Sarcastic"),
+)
+
+
+st.title(f"Welcome to :blue[Chirag Jain's] :red[{option}] bot")
 
 if "openai_model" not in st.session_state:
     st.session_state["openai_model"] = "gpt-4-1106-preview"
@@ -19,7 +25,7 @@ if "messages" not in st.session_state:
     st.session_state.messages = []
 
 # Define your system prompt here
-system_prompt = "You are Chirag Jain's helpful personal assistant. Be exteremly funny and add 'Chirag thinks' when replying"
+system_prompt = f"You are Chirag Jain's helpful personal assistant. Be exteremly {option} and add 'Chirag thinks' when replying"
 
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
